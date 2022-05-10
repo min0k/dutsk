@@ -1,5 +1,9 @@
-import React from "react";
+import { LightDarkModeButton } from "../components/LightDarkModeButton";
 
 export const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <div>
+      <LightDarkModeButton />
+    </div>
+  );
 };

@@ -2,7 +2,7 @@ import RichTextEditor from "@mantine/rte";
 import React, { useState } from "react";
 
 export const Free = () => {
-  const [value, onChange] = useState("");
+  const [value, onChange] = useState("What's on your mind?");
   return (
     <div>
       <RichTextEditor

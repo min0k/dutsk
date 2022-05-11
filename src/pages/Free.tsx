@@ -1,15 +1,9 @@
-import RichTextEditor from "@mantine/rte";
-import React, { useState } from "react";
+import { Textarea } from "@mantine/core";
 
 export const Free = () => {
-  const [value, onChange] = useState("What's on your mind?");
   return (
     <div>
-      <RichTextEditor
-        value={value}
-        onChange={onChange}
-        controls={[["alignLeft", "alignCenter", "alignRight"]]}
-      />
+      <Textarea autosize radius="sm" placeholder="..." />
     </div>
   );
 };

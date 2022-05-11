@@ -1,5 +1,15 @@
-import React from "react";
+import RichTextEditor from "@mantine/rte";
+import React, { useState } from "react";
 
 export const Free = () => {
-  return <div>Free</div>;
+  const [value, onChange] = useState("");
+  return (
+    <div>
+      <RichTextEditor
+        value={value}
+        onChange={onChange}
+        controls={[["alignLeft", "alignCenter", "alignRight"]]}
+      />
+    </div>
+  );
 };

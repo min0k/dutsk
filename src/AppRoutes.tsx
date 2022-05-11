@@ -15,6 +15,8 @@ import {
   Burger,
   useMantineTheme,
 } from "@mantine/core";
+import { NavbarComponent } from "./components/NavbarComponent";
+import { HeaderComponent } from "./components/HeaderComponent";
 
 export const AppRoutes = () => {
   const theme = useMantineTheme();
@@ -41,13 +43,12 @@ export const AppRoutes = () => {
             hidden={!opened}
             width={{ sm: 200, lg: 300 }}
           >
-            <Text>Application navbar</Text>
+            <NavbarComponent />
           </Navbar>
         }
         footer={
           <Footer height={60} p="md">
             <Text align="center" size="sm">
-              {" "}
               Made by Mino Kim
             </Text>
           </Footer>
@@ -66,7 +67,7 @@ export const AppRoutes = () => {
                   mr="xl"
                 />
               </MediaQuery>
-              <Text>Application header</Text>
+              <HeaderComponent />
             </div>
           </Header>
         }

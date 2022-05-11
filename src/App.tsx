@@ -6,7 +6,7 @@ import {
   Paper,
 } from "@mantine/core";
 import { AppRoutes } from "./AppRoutes";
-import { useHotkeys, useLocalStorage } from "@mantine/hooks";
+import { useLocalStorage } from "@mantine/hooks";
 
 function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -17,8 +17,6 @@ function App() {
 
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
-
-  useHotkeys([["mod+J", () => toggleColorScheme()]]);
 
   return (
     <ColorSchemeProvider

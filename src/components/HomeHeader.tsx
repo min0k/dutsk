@@ -11,9 +11,7 @@ export const HomeHeader = () => {
           borderRadius: theme.radius.md,
         })}
       >
-        <Title mb="lg" sx={{ color: theme.colors.blue }}>
-          <Mark>What is this?</Mark>
-        </Title>
+        <Title mb="lg">What is this?</Title>
         <Text mb="lg">
           These are a set of questions prepared by{" "}
           <Anchor href="https://mantine.dev/" target="_blank">

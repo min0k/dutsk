@@ -5,6 +5,7 @@ import {
   Button,
   Group,
   useMantineTheme,
+  AspectRatio,
 } from "@mantine/core";
 
 interface QuestionSetCardProps {
@@ -24,7 +25,9 @@ export const QuestionSetCard = ({
     <div style={{ width: 340, margin: "auto" }}>
       <Card shadow="sm" p="lg">
         <Card.Section>
-          <Image src={image} alt="Norway" />
+          <AspectRatio ratio={370 / 320}>
+            <Image src={image} alt="temp" withPlaceholder />
+          </AspectRatio>
         </Card.Section>
 
         <Group

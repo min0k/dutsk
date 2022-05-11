@@ -10,7 +10,7 @@ export const HomeHeader = () => {
         })}
       >
         <Text size="lg" pb="xl" pl="xl">
-          [Short message from person who prepared the questions.]
+          [Short description of what this is.]
         </Text>
         <Text size="lg" pb="sm" pl="xl" variant="text">
           These questions were prepared by{" "}

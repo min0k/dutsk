@@ -1,7 +1,7 @@
 import { SimpleGrid, Stack } from "@mantine/core";
 import { HomeHeader } from "../components/HomeHeader";
 import { QuestionSetCard } from "../components/QuestionSetCard";
-import { questionSetData } from "../data/questionSetData";
+import { questionCardData } from "../data/questionCardData";
 
 export const Home = () => {
   return (
@@ -14,12 +14,12 @@ export const Home = () => {
           { maxWidth: 920, cols: 1, spacing: "lg" },
         ]}
       >
-        {questionSetData.map((set) => {
+        {questionCardData.map((card) => {
           return (
             <QuestionSetCard
-              title={set.title}
-              description={set.description}
-              image={set.image}
+              title={card.title}
+              description={card.description}
+              image={card.image}
             />
           );
         })}

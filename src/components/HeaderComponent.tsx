@@ -1,9 +1,9 @@
-import { Text } from "@mantine/core";
+import { Mark, Text } from "@mantine/core";
 
 export const HeaderComponent = () => {
   return (
-    <Text size="md" color="blue" weight="600">
-      Mindwrite
+    <Text size="xl" color="blue" weight="600">
+      <Mark>Mindwrite</Mark>
     </Text>
   );
 };

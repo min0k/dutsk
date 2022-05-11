@@ -3,10 +3,10 @@ import { FiHome, FiCircle, FiSettings, FiBookOpen } from "react-icons/fi";
 
 export const NavbarComponent = () => {
   const navbarData = [
-    { icon: <FiHome size={16} />, color: "blue", label: "Home" },
-    { icon: <FiCircle size={16} />, color: "teal", label: "Free" },
-    { icon: <FiSettings size={16} />, color: "violet", label: "Settings" },
-    { icon: <FiBookOpen size={16} />, color: "grape", label: "About" },
+    { icon: <FiHome size={16} />, color: "yellow", label: "Home" },
+    { icon: <FiCircle size={16} />, color: "cyan", label: "Free" },
+    { icon: <FiSettings size={16} />, color: "orange", label: "Settings" },
+    { icon: <FiBookOpen size={16} />, color: "green", label: "About" },
   ];
 
   const links = navbarData.map((link) => (

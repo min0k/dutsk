@@ -13,7 +13,7 @@ export const questionCardData = [
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
-      "What would happen if you never got it?",
+      "What would happen if you never get it?",
     ],
   },
   {
@@ -23,7 +23,7 @@ export const questionCardData = [
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
-      "What would happen if you never got it?",
+      "What would happen if you never get it?",
     ],
   },
   {
@@ -33,7 +33,7 @@ export const questionCardData = [
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
-      "What would happen if you never got it?",
+      "What would happen if you never get it?",
     ],
   },
   {
@@ -43,7 +43,7 @@ export const questionCardData = [
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
-      "What would happen if you never got it?",
+      "What would happen if you never get it?",
     ],
   },
   {
@@ -53,7 +53,7 @@ export const questionCardData = [
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
-      "What would happen if you never got it?",
+      "What would happen if you never get it?",
     ],
   },
   {
@@ -63,7 +63,7 @@ export const questionCardData = [
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
-      "What would happen if you never got it?",
+      "What would happen if you never get it?",
     ],
   },
 ];

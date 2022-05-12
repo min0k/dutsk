@@ -1,7 +1,9 @@
-import { Button, Container, Text, Textarea, Title } from "@mantine/core";
+import { Button, Container, Text, Textarea } from "@mantine/core";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { IQuestionState } from "../ts/Interfaces";
+
+import { Link } from "react-router-dom";
 
 export const Write = () => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
@@ -33,16 +35,25 @@ export const Write = () => {
 
   if (complete) {
     return (
-      <div>
+      <Container>
         {answers.map((answer, idx) => (
-          <Container>
+          <div>
             <Text weight="bold">{questions.questions[idx]}</Text>
             <Text key={idx} pb="xl">
               {answer}
             </Text>
-          </Container>
+          </div>
         ))}
-      </div>
+        <Button
+          variant="light"
+          color="blue"
+          style={{ marginTop: 14 }}
+          component={Link}
+          to="./Home"
+        >
+          Home
+        </Button>
+      </Container>
     );
   }
 

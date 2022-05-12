@@ -33,11 +33,16 @@ export const Write = () => {
 
   if (complete) {
     return (
-      <Title>
+      <div>
         {answers.map((answer, idx) => (
-          <Text key={idx}>{answer}</Text>
+          <Container>
+            <Text weight="bold">{questions.questions[idx]}</Text>
+            <Text key={idx} pb="xl">
+              {answer}
+            </Text>
+          </Container>
         ))}
-      </Title>
+      </div>
     );
   }
 

@@ -17,6 +17,7 @@ import {
 } from "@mantine/core";
 import { NavbarComponent } from "./components/NavbarComponent";
 import { HeaderComponent } from "./components/HeaderComponent";
+import { Write } from "./pages/Write";
 
 export const AppRoutes = () => {
   const theme = useMantineTheme();
@@ -77,6 +78,7 @@ export const AppRoutes = () => {
           <Route path="/free" element={<Free />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/about" element={<About />} />
+          <Route path="/write" element={<Write />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </AppShell>

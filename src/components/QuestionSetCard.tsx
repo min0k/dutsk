@@ -7,17 +7,20 @@ import {
   useMantineTheme,
   AspectRatio,
 } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 interface QuestionSetCardProps {
   image: string;
   title: string;
   description: string;
+  questions: string[];
 }
 
 export const QuestionSetCard = ({
   image,
   title,
   description,
+  questions,
 }: QuestionSetCardProps) => {
   const theme = useMantineTheme();
 
@@ -42,6 +45,9 @@ export const QuestionSetCard = ({
           color="blue"
           fullWidth
           style={{ marginTop: 14 }}
+          component={Link}
+          to="./Write"
+          state={{ questions: questions }}
         >
           Write
         </Button>

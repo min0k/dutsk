@@ -17,9 +17,11 @@ export const Home = () => {
         {questionCardData.map((card) => {
           return (
             <QuestionSetCard
+              key={card.title}
               title={card.title}
               description={card.description}
               image={card.image}
+              questions={card.questions}
             />
           );
         })}

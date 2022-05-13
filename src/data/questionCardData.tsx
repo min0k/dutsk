@@ -1,69 +1,62 @@
-import shib1 from "../assets/shib1.png";
-import shib2 from "../assets/shib2.png";
-import shib3 from "../assets/shib3.png";
-import shib4 from "../assets/shib4.png";
-import shib5 from "../assets/shib5.png";
-import shib6 from "../assets/shib6.png";
-
 export const questionCardData = [
   {
     title: "Wants",
-    description: "Questions provided by M.K.",
-    image: shib1,
+    author: "M.K.",
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
       "What would happen if you never get it?",
     ],
+    backgroundColor: "green",
   },
   {
     title: "Wants",
-    description: "Questions provided by M.K.",
-    image: shib2,
+    author: "M.K.",
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
       "What would happen if you never get it?",
     ],
+    backgroundColor: "blue",
   },
   {
     title: "Wants",
-    description: "Questions provided by M.K.",
-    image: shib3,
+    author: "M.K.",
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
       "What would happen if you never get it?",
     ],
+    backgroundColor: "red",
   },
   {
     title: "Wants",
-    description: "Questions provided by M.K.",
-    image: shib4,
+    author: "M.K.",
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
       "What would happen if you never get it?",
     ],
+    backgroundColor: "indigo",
   },
   {
     title: "Wants",
-    description: "Questions provided by M.K.",
-    image: shib5,
+    author: "M.K.",
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
       "What would happen if you never get it?",
     ],
+    backgroundColor: "yellow",
   },
   {
     title: "Wants",
-    description: "Questions provided by M.K.",
-    image: shib6,
+    author: "M.K.",
     questions: [
       "What is something you wish you had?",
       "Why do you want it?",
       "What would happen if you never get it?",
     ],
+    backgroundColor: "pink",
   },
 ];

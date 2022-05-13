@@ -1,48 +1,35 @@
-import {
-  Card,
-  Image,
-  Text,
-  Button,
-  Group,
-  useMantineTheme,
-  AspectRatio,
-} from "@mantine/core";
+import { Card, Text, Button, Group, useMantineTheme } from "@mantine/core";
 import { Link } from "react-router-dom";
 
 interface QuestionSetCardProps {
-  image: string;
   title: string;
-  description: string;
+  author: string;
   questions: string[];
+  backgroundColor?: string;
 }
 
 export const QuestionSetCard = ({
-  image,
   title,
-  description,
+  author,
   questions,
+  backgroundColor,
 }: QuestionSetCardProps) => {
   const theme = useMantineTheme();
 
   return (
     <div style={{ width: 340, margin: "auto" }}>
       <Card shadow="sm" p="lg">
-        <Card.Section>
-          <AspectRatio ratio={370 / 320}>
-            <Image src={image} alt="temp" withPlaceholder />
-          </AspectRatio>
-        </Card.Section>
-
         <Group
           position="apart"
           style={{ marginBottom: 5, marginTop: theme.spacing.sm }}
         >
           <Text weight={500}>{title}</Text>
         </Group>
-        <Text size="sm">{description}</Text>
+        <Text size="sm" weight={300}>
+          By <span style={{ fontWeight: "bold" }}>{author}</span>
+        </Text>
         <Button
-          variant="light"
-          color="blue"
+          color={backgroundColor}
           fullWidth
           style={{ marginTop: 14 }}
           component={Link}

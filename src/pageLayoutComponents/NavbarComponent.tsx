@@ -1,4 +1,4 @@
-import { MainLink } from "./MainLinks";
+import { MainLink } from "../components/MainLinks";
 import { navbarLinks, navbarLogout } from "../data/navbarData";
 
 export const NavbarComponent = () => {

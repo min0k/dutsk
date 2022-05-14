@@ -1,7 +1,7 @@
 import { Free } from "./pages/Free";
 import { Home } from "./pages/Home";
 import { Settings } from "./pages/Settings";
-import { About } from "./About";
+import { About } from "./pages/About";
 import { useState } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -15,9 +15,10 @@ import {
   Burger,
   useMantineTheme,
 } from "@mantine/core";
-import { NavbarComponent } from "./components/NavbarComponent";
-import { HeaderComponent } from "./components/HeaderComponent";
+import { NavbarComponent } from "./pageLayoutComponents/NavbarComponent";
+import { HeaderComponent } from "./pageLayoutComponents/HeaderComponent";
 import { Write } from "./pages/Write";
+import { FooterComponent } from "./pageLayoutComponents/FooterComponent";
 
 export const AppRoutes = () => {
   const theme = useMantineTheme();
@@ -49,9 +50,7 @@ export const AppRoutes = () => {
         }
         footer={
           <Footer height={60} p="md">
-            <Text align="center" size="sm">
-              Made by Mino Kim
-            </Text>
+            <FooterComponent />
           </Footer>
         }
         header={

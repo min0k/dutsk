@@ -1,4 +1,13 @@
-import { Button, Card, Group, SimpleGrid, Stack, Text } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Card,
+  Group,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { Link } from "react-router-dom";
 import { HomeHeader } from "../components/HomeHeader";
 import { QuestionSetCard } from "../components/QuestionSetCard";
@@ -8,6 +17,16 @@ export const Home = () => {
   return (
     <Stack>
       <HomeHeader />
+      <Box
+        sx={(theme) => ({
+          padding: theme.spacing.xl,
+          borderRadius: theme.radius.md,
+        })}
+      >
+        {" "}
+        <Title pl="xl">Questions </Title>
+      </Box>
+
       <SimpleGrid
         cols={3}
         breakpoints={[

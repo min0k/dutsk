@@ -6,6 +6,7 @@ import {
 } from "@mantine/core";
 import { AppRoutes } from "./AppRoutes";
 import { useLocalStorage } from "@mantine/hooks";
+import Auth0ProviderWithHistory from "./auth0Provider";
 
 function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -18,16 +19,18 @@ function App() {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider theme={{ colorScheme }}>
-        <Paper radius={0} style={{ minHeight: "100vh" }}>
-          <AppRoutes />
-        </Paper>
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <Auth0ProviderWithHistory>
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        toggleColorScheme={toggleColorScheme}
+      >
+        <MantineProvider theme={{ colorScheme }}>
+          <Paper radius={0} style={{ minHeight: "100vh" }}>
+            <AppRoutes />
+          </Paper>
+        </MantineProvider>
+      </ColorSchemeProvider>
+    </Auth0ProviderWithHistory>
   );
 }
 

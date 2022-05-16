@@ -1,8 +1,14 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { LoginButton } from "../components/LoginButton";
+import { LogoutButton } from "../components/LogoutButton";
 import { MainLink } from "../components/MainLinks";
 import { navbarLinks } from "../data/navbarData";
 
 export const NavbarComponent = () => {
+  const { isLoading, user } = useAuth0();
+
+  console.log(user);
+
   return (
     <div
       style={{
@@ -18,7 +24,8 @@ export const NavbarComponent = () => {
         ))}
       </div>
       <div>
-        <LoginButton />
+        {!isLoading && !user && <LoginButton />}
+        {!isLoading && user && <LogoutButton />}
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ import {
   Navbar,
   Header,
   Footer,
-  Text,
   MediaQuery,
   Burger,
   useMantineTheme,

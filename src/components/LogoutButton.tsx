@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Text, ThemeIcon } from "@mantine/core";
+import { Button, ThemeIcon } from "@mantine/core";
 import { FiLogOut } from "react-icons/fi";
 import { ICON_SIZE } from "../data/navbarData";
 

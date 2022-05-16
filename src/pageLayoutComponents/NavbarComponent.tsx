@@ -1,5 +1,6 @@
+import { LoginButton } from "../components/LoginButton";
 import { MainLink } from "../components/MainLinks";
-import { navbarLinks, navbarLogout } from "../data/navbarData";
+import { navbarLinks } from "../data/navbarData";
 
 export const NavbarComponent = () => {
   return (
@@ -17,9 +18,7 @@ export const NavbarComponent = () => {
         ))}
       </div>
       <div>
-        {navbarLogout.map((link) => (
-          <MainLink {...link} key={link.label} />
-        ))}
+        <LoginButton />
       </div>
     </div>
   );

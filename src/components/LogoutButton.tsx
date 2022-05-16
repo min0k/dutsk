@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, ThemeIcon } from "@mantine/core";
-import { FiLogIn } from "react-icons/fi";
+import { Button, Text, ThemeIcon } from "@mantine/core";
+import { FiLogOut } from "react-icons/fi";
 import { ICON_SIZE } from "../data/navbarData";
 
 export const LogoutButton = () => {
@@ -21,9 +21,9 @@ export const LogoutButton = () => {
       })}
     >
       <ThemeIcon variant="outline" style={{ marginRight: "20px" }}>
-        <FiLogIn size={ICON_SIZE} />
+        <FiLogOut size={ICON_SIZE} />
       </ThemeIcon>
-      Login
+      Logout
     </Button>
   );
 };

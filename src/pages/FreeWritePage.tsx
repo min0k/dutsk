@@ -1,6 +1,6 @@
 import { Textarea } from "@mantine/core";
 
-export const Free = () => {
+export const FreeWritePage = () => {
   return (
     <div>
       <Textarea autosize radius="sm" placeholder="..." />

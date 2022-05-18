@@ -1,7 +1,7 @@
 import { HomeHeaderSection } from "../components/HomeHeaderSection";
 import { HomeQuestionSection } from "../components/HomeQuestionSection";
 
-export const Home = () => {
+export const HomePage = () => {
   return (
     <div>
       <HomeHeaderSection />

@@ -1,7 +1,7 @@
 import { Divider, Group, Text, Title } from "@mantine/core";
 import { LightDarkModeButton } from "../components/LightDarkModeButton";
 
-export const Settings = () => {
+export const SettingsPage = () => {
   return (
     <div>
       <Title pb="xl">Settings</Title>

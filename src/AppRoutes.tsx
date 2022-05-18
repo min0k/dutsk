@@ -1,7 +1,7 @@
-import { Free } from "./pages/Free";
-import { Home } from "./pages/Home";
-import { Settings } from "./pages/Settings";
-import { About } from "./pages/About";
+import { FreeWritePage } from "./pages/FreeWritePage";
+import { HomePage } from "./pages/HomePage";
+import { SettingsPage } from "./pages/SettingsPage";
+import { AboutPage } from "./pages/AboutPage";
 import { useState } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ import {
 } from "@mantine/core";
 import { NavbarComponent } from "./pageLayoutComponents/NavbarComponent";
 import { HeaderComponent } from "./pageLayoutComponents/HeaderComponent";
-import { Write } from "./pages/Write";
+import { Write } from "./pages/WritePage";
 import { FooterComponent } from "./pageLayoutComponents/FooterComponent";
 
 export const AppRoutes = () => {
@@ -72,12 +72,12 @@ export const AppRoutes = () => {
         }
       >
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/free" element={<Free />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/free" element={<FreeWritePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/write" element={<Write />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </AppShell>
     </BrowserRouter>

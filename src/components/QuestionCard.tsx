@@ -27,7 +27,7 @@ export const QuestionCard = ({
           fullWidth
           style={{ marginTop: 14 }}
           component={Link}
-          to="./Write"
+          to="/write"
           state={{ questions: questions }}
         >
           Write

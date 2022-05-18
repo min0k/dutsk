@@ -18,6 +18,8 @@ import { NavbarComponent } from "./pageLayoutComponents/NavbarComponent";
 import { HeaderComponent } from "./pageLayoutComponents/HeaderComponent";
 import { Write } from "./pages/WritePage";
 import { FooterComponent } from "./pageLayoutComponents/FooterComponent";
+import { CreateQuestionPage } from "./pages/CreateQuestionPage";
+import { RequireAuth } from "./components/RequireAuth";
 
 export const AppRoutes = () => {
   const theme = useMantineTheme();
@@ -77,6 +79,16 @@ export const AppRoutes = () => {
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/write" element={<Write />} />
+
+          <Route
+            path="/create"
+            element={
+              <RequireAuth>
+                <CreateQuestionPage />
+              </RequireAuth>
+            }
+          />
+
           <Route path="*" element={<HomePage />} />
         </Routes>
       </AppShell>

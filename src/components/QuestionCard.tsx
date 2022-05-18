@@ -1,19 +1,13 @@
 import { Card, Text, Button, Group, useMantineTheme } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { IQuestionCard } from "../ts/Interfaces";
 
-interface QuestionSetCardProps {
-  title: string;
-  author: string;
-  questions: string[];
-  backgroundColor?: string;
-}
-
-export const QuestionSetCard = ({
+export const QuestionCard = ({
   title,
   author,
   questions,
   backgroundColor,
-}: QuestionSetCardProps) => {
+}: IQuestionCard) => {
   const theme = useMantineTheme();
 
   return (

@@ -1,4 +1,4 @@
-import { QuestionSetCard } from "../components/QuestionSetCard";
+import { QuestionCard } from "./QuestionCard";
 import { questionCardData } from "../data/questionCardData";
 
 import {
@@ -49,7 +49,7 @@ export const HomeQuestionSection = () => {
         </div>
         {questionCardData.map((card, idx) => {
           return (
-            <QuestionSetCard
+            <QuestionCard
               key={idx}
               title={card.title}
               author={card.author}

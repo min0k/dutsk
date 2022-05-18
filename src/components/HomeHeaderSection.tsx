@@ -18,15 +18,6 @@ export const HomeHeaderSection = () => {
             [Person]
           </Anchor>
         </Text>
-
-        <Blockquote
-          pb="xl"
-          color="blue"
-          cite="– Haruki Murakami, Norwegian Wood"
-          sx={{ fontSize: "small" }}
-        >
-          What happens when people open their hearts? They get better.
-        </Blockquote>
       </Box>
     </div>
   );

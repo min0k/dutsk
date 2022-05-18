@@ -1,53 +1,49 @@
-import { useForm } from "react-hook-form";
+import { Button, NativeSelect, TextInput } from "@mantine/core";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+// Use Controller - React-hook-forms
+
+interface IFormInput {
+  title: String;
+  name: String;
+  questions: String[];
+  color: String;
+}
 
 export const CreateQuestionPage = () => {
-  const {
-    register,
-    // handleSubmit,
-    // watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
-    <div>
-      <form onSubmit={undefined}>
-        <label>Who are you </label>
-        <input
-          autoFocus
-          autoComplete="off"
-          placeholder="JobuTupaki"
-          {...register("user", {
-            pattern: {
-              value: /^\S*$/,
-              message: "No spaces",
-            },
-            required: "Identity required",
-            maxLength: {
-              value: 20,
-              message: "Identity must be shorter than 20 characters",
-            },
-          })}
-        />
-        <p>{errors.user?.message}</p>
-        <label>What is your word of choice </label>
-        <input
-          autoComplete="off"
-          placeholder="Bagel"
-          {...register("word", {
-            pattern: {
-              value: /^[a-zA-Z]+$/,
-              message: "Letters only",
-            },
-            required: "Word required",
-            maxLength: {
-              value: 20,
-              message: "Word must be shorter than 20 characters",
-            },
-          })}
-        />
-        <p>{errors.word?.message}</p>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <TextInput
+        label="Title"
+        {...(register("title"), { required: true, maxLength: 16 })}
+      />
+      <TextInput
+        label="Name"
+        {...(register("name"), { required: true, maxLength: 16 })}
+      />
+      <TextInput
+        label="Question 1"
+        {...(register("questions"), { required: true, maxLength: 100 })}
+      />
+      <TextInput
+        label="Question 2"
+        {...(register("questions"), { required: true, maxLength: 100 })}
+      />
+      <TextInput
+        label="Question 3"
+        {...(register("questions"), { required: true, maxLength: 100 })}
+      />
+      <NativeSelect
+        mb="xl"
+        {...(register("color"), { required: true })}
+        data={["React", "Vue", "Angular", "Svelte"]}
+        placeholder="Pick one"
+        label="Pick a color"
+      />
+      <Button type="submit">Submit</Button>
+    </form>
   );
 };

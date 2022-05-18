@@ -11,8 +11,34 @@ import {
   Title,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const HomeQuestionSection = () => {
+  const { user, loginWithRedirect } = useAuth0();
+
+  const RedirectButton = () => {
+    return user ? (
+      <Button
+        variant="outline"
+        fullWidth
+        style={{ marginTop: 14 }}
+        component={Link}
+        to="./create"
+      >
+        Add new question set
+      </Button>
+    ) : (
+      <Button
+        variant="outline"
+        fullWidth
+        style={{ marginTop: 14 }}
+        onClick={loginWithRedirect}
+      >
+        Login
+      </Button>
+    );
+  };
+
   return (
     <div>
       <Box
@@ -36,15 +62,7 @@ export const HomeQuestionSection = () => {
               <Text weight={500}>Add Your Own Questions</Text>
             </Group>
             <Text size="sm">By ... </Text>
-            <Button
-              variant="outline"
-              fullWidth
-              style={{ marginTop: 14 }}
-              component={Link}
-              to="./create"
-            >
-              Add new question set
-            </Button>
+            <RedirectButton />
           </Card>
         </div>
         {questionCardData.map((card, idx) => {

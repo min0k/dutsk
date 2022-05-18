@@ -1,48 +1,93 @@
-import { Button, NativeSelect, TextInput } from "@mantine/core";
-import { useForm, SubmitHandler } from "react-hook-form";
-
-// Use Controller - React-hook-forms
+import { Button, TextInput } from "@mantine/core";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 interface IFormInput {
   title: String;
   name: String;
-  questions: String[];
-  color: String;
+  question1: String;
+  question2: String;
+  question3: String;
 }
 
 export const CreateQuestionPage = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const { handleSubmit, control } = useForm<IFormInput>();
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <TextInput
-        label="Title"
-        {...(register("title"), { required: true, maxLength: 16 })}
-      />
-      <TextInput
-        label="Name"
-        {...(register("name"), { required: true, maxLength: 16 })}
-      />
-      <TextInput
-        label="Question 1"
-        {...(register("questions"), { required: true, maxLength: 100 })}
-      />
-      <TextInput
-        label="Question 2"
-        {...(register("questions"), { required: true, maxLength: 100 })}
-      />
-      <TextInput
-        label="Question 3"
-        {...(register("questions"), { required: true, maxLength: 100 })}
-      />
-      <NativeSelect
-        mb="xl"
-        {...(register("color"), { required: true })}
-        data={["React", "Vue", "Angular", "Svelte"]}
-        placeholder="Pick one"
-        label="Pick a color"
-      />
+      <Controller
+        name="title"
+        control={control}
+        rules={{ required: true }}
+        render={({ field: { value, ...rest } }) => (
+          <TextInput
+            mb="xl"
+            label="Title"
+            placeholder="One or two words on the topic of your questions."
+            required
+            maxLength={24}
+            {...rest}
+          ></TextInput>
+        )}
+      ></Controller>
+      <Controller
+        name="name"
+        control={control}
+        render={({ field: { value, ...rest } }) => (
+          <TextInput
+            mb="xl"
+            label="Name"
+            placeholder="Your username"
+            required
+            maxLength={20}
+            {...rest}
+          ></TextInput>
+        )}
+      ></Controller>
+      <Controller
+        name="question1"
+        control={control}
+        render={({ field: { value, ...rest } }) => (
+          <TextInput
+            mb="xl"
+            label="Question 1"
+            placeholder="Question 1"
+            required
+            maxLength={100}
+            {...rest}
+          ></TextInput>
+        )}
+      ></Controller>
+      <Controller
+        name="question2"
+        control={control}
+        render={({ field: { value, ...rest } }) => (
+          <TextInput
+            mb="xl"
+            label="Question 2"
+            placeholder="Question 2"
+            required
+            maxLength={100}
+            {...rest}
+          ></TextInput>
+        )}
+      ></Controller>
+      <Controller
+        name="question3"
+        control={control}
+        render={({ field: { value, ...rest } }) => (
+          <TextInput
+            mb="xl"
+            label="Question 3"
+            placeholder="Question 3"
+            required
+            maxLength={100}
+            {...rest}
+          ></TextInput>
+        )}
+      ></Controller>
+
       <Button type="submit">Submit</Button>
     </form>
   );

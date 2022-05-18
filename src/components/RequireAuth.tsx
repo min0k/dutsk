@@ -7,5 +7,5 @@ interface IRequireAuth {
 
 export const RequireAuth = ({ children }: IRequireAuth) => {
   const { user } = useAuth0();
-  return user ? children : <Navigate to="/home" replace />;
+  return user ? children : <Navigate to="/" replace />;
 };

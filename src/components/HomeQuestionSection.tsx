@@ -23,7 +23,7 @@ export const HomeQuestionSection = () => {
         fullWidth
         style={{ marginTop: 14 }}
         component={Link}
-        to="./create"
+        to="/create"
       >
         Add new question set
       </Button>

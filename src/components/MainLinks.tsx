@@ -1,5 +1,6 @@
 import { Anchor, ThemeIcon } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { capitalizeFirstLetter } from "../util/capitalizeFirstLetter";
 
 interface MainLinkProps {
   icon: React.ReactNode;
@@ -33,7 +34,7 @@ export const MainLink = ({ icon, color, label }: MainLinkProps) => {
       <ThemeIcon color={color} variant="light" style={{ marginRight: "20px" }}>
         {icon}
       </ThemeIcon>
-      {label}
+      {capitalizeFirstLetter(label)}
     </Anchor>
   );
 };

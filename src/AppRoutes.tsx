@@ -20,6 +20,7 @@ import { Write } from "./pages/WritePage";
 import { FooterComponent } from "./pageLayoutComponents/FooterComponent";
 import { CreateQuestionPage } from "./pages/CreateQuestionPage";
 import { RequireAuth } from "./components/RequireAuth";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export const AppRoutes = () => {
   const theme = useMantineTheme();
@@ -75,6 +76,7 @@ export const AppRoutes = () => {
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/free" element={<FreeWritePage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -89,7 +91,7 @@ export const AppRoutes = () => {
             }
           />
 
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppShell>
     </BrowserRouter>

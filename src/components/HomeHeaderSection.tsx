@@ -1,4 +1,4 @@
-import { Anchor, Blockquote, Box, Text } from "@mantine/core";
+import { Anchor, Box, Text } from "@mantine/core";
 export const HomeHeaderSection = () => {
   return (
     <div>

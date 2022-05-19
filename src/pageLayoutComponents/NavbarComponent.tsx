@@ -6,9 +6,6 @@ import { navbarLinks } from "../data/navbarData";
 
 export const NavbarComponent = () => {
   const { isLoading, user } = useAuth0();
-
-  console.log(user);
-
   return (
     <div
       style={{

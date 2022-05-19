@@ -1,18 +1,23 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { Button, TextInput } from "@mantine/core";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-
-interface IFormInput {
-  title: String;
-  name: String;
-  question1: String;
-  question2: String;
-  question3: String;
-}
+import { useNavigate } from "react-router-dom";
+import { addNewQuestions } from "../api/addNewQuestions";
+import { IFormInput } from "../ts/Interfaces";
+import { prepareQuestions } from "../util/prepareQuestions";
 
 export const CreateQuestionPage = () => {
-  const { handleSubmit, control } = useForm<IFormInput>();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const { handleSubmit, control } = useForm<IFormInput>();
+  const { user } = useAuth0();
+
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    const preparedData = prepareQuestions(data, user);
+    addNewQuestions(preparedData).then(() => {
+      navigate("/home");
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -27,20 +32,6 @@ export const CreateQuestionPage = () => {
             placeholder="One or two words on the topic of your questions."
             required
             maxLength={24}
-            {...rest}
-          ></TextInput>
-        )}
-      ></Controller>
-      <Controller
-        name="name"
-        control={control}
-        render={({ field: { value, ...rest } }) => (
-          <TextInput
-            mb="xl"
-            label="Name"
-            placeholder="Your username"
-            required
-            maxLength={20}
             {...rest}
           ></TextInput>
         )}

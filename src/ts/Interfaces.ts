@@ -8,3 +8,19 @@ export interface IQuestionCard {
   questions: string[];
   backgroundColor?: string;
 }
+
+export interface IFormInput {
+  title: String;
+  question1: String;
+  question2: String;
+  question3: String;
+}
+
+export interface IQuestionEntry {
+  title: String;
+  name: String;
+  color: String;
+  question1: String;
+  question2: String;
+  question3: String;
+}

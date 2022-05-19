@@ -49,7 +49,7 @@ export const Write = () => {
           color="blue"
           style={{ marginTop: 14 }}
           component={Link}
-          to="./Home"
+          to="/Home"
         >
           Home
         </Button>

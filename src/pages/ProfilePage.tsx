@@ -6,9 +6,14 @@ import { IQuestionDataFromApi } from "../ts/Interfaces";
 import { QuestionCard } from "../components/QuestionCard";
 import { LoginButton } from "../components/LoginButton";
 
+export interface IFormControllerProps {
+  setNewUser: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export const ProfilePage = () => {
   const { isLoading, user } = useAuth0();
   const [userQuestions, setUserQuestions] = useState<IQuestionDataFromApi[]>();
+  const [numberOfQuestions, setNumberOfQuestions] = useState<number>(0);
 
   useEffect(() => {
     const getUserQuestions = async () => {
@@ -18,10 +23,11 @@ export const ProfilePage = () => {
       const data = await res.json();
       const preparedData = prepareQuestionsForRender(data);
       setUserQuestions(preparedData);
+      setNumberOfQuestions(preparedData.length);
     };
 
     getUserQuestions();
-  }, [user]);
+  }, [user, numberOfQuestions]);
 
   if (!user) {
     return (
@@ -47,6 +53,7 @@ export const ProfilePage = () => {
         </Group>
       )}
       <Title m="xl">Your Questions</Title>
+      <Text m="xl">You have {numberOfQuestions} questions</Text>
       <SimpleGrid
         cols={3}
         breakpoints={[
@@ -62,6 +69,9 @@ export const ProfilePage = () => {
               author={card.name}
               questions={card.questions}
               backgroundColor={card.color}
+              inProfile={true}
+              id={card._id}
+              setNumberOfQuestions={setNumberOfQuestions}
             />
           );
         })}

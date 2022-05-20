@@ -6,7 +6,10 @@ export interface IQuestionCard {
   title: string;
   author: string;
   questions: string[];
-  backgroundColor?: string;
+  backgroundColor: string;
+  inProfile?: boolean;
+  id?: string;
+  setNumberOfQuestions?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface IFormInput {

@@ -25,9 +25,9 @@ export const Write = () => {
     }
   };
 
-  const questionTitle = questions.questions.map((question) => {
+  const questionTitle = questions.questions.map((question, idx) => {
     return (
-      <Text weight="bold" pb="xl">
+      <Text weight="bold" pb="xl" key={idx}>
         {question}
       </Text>
     );

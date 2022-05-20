@@ -29,7 +29,6 @@ export const HomeQuestionSection = () => {
     getAllQuestions();
   }, []);
 
-  console.log(questions);
   const RedirectButton = () => {
     return user ? (
       <Button

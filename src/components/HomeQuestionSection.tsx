@@ -1,7 +1,5 @@
 import { QuestionCard } from "./QuestionCard";
-
 import { useState, useEffect } from "react";
-
 import {
   Box,
   Button,
@@ -21,12 +19,12 @@ export const HomeQuestionSection = () => {
   const [questions, setQuestions] = useState<IQuestionDataFromApi[]>();
 
   useEffect(() => {
-    async function getAllQuestions() {
+    const getAllQuestions = async () => {
       const res = await fetch("http://localhost:8080/all-questions");
       const data = await res.json();
       const preparedData = prepareQuestionsForRender(data);
       setQuestions(preparedData);
-    }
+    };
 
     getAllQuestions();
   }, []);

@@ -18,7 +18,7 @@ export const ProfilePage = () => {
   useEffect(() => {
     const getUserQuestions = async () => {
       const res = await fetch(
-        `http://localhost:8080/get-user-questions?name=${user?.name}`
+        `${process.env.REACT_APP_CLOUD_RUN_URL}/get-user-questions?name=${user?.name}`
       );
       const data = await res.json();
       const preparedData = prepareQuestionsForRender(data);

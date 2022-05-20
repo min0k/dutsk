@@ -20,7 +20,9 @@ export const HomeQuestionSection = () => {
 
   useEffect(() => {
     const getAllQuestions = async () => {
-      const res = await fetch("http://localhost:8080/all-questions");
+      const res = await fetch(
+        `${process.env.REACT_APP_CLOUD_RUN_URL}/all-questions`
+      );
       const data = await res.json();
       const preparedData = prepareQuestionsForRender(data);
       setQuestions(preparedData);

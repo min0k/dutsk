@@ -4,7 +4,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { addNewQuestions } from "../api/addNewQuestions";
 import { IFormInput } from "../ts/Interfaces";
-import { prepareQuestions } from "../util/prepareQuestions";
+import { prepareQuestionsForUpload } from "../util/prepareQuestions";
 
 export const CreateQuestionPage = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const CreateQuestionPage = () => {
   const { user } = useAuth0();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const preparedData = prepareQuestions(data, user);
+    const preparedData = prepareQuestionsForUpload(data, user);
     addNewQuestions(preparedData).then(() => {
       navigate("/home");
     });

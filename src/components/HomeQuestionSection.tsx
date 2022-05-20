@@ -1,5 +1,6 @@
 import { QuestionCard } from "./QuestionCard";
-import { questionCardData } from "../data/questionCardData";
+
+import { useState, useEffect } from "react";
 
 import {
   Box,
@@ -12,10 +13,25 @@ import {
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { prepareQuestionsForRender } from "../util/prepareQuestionsForRender";
+import { IQuestionDataFromApi } from "../ts/Interfaces";
 
 export const HomeQuestionSection = () => {
   const { user, loginWithRedirect } = useAuth0();
+  const [questions, setQuestions] = useState<IQuestionDataFromApi[]>();
 
+  useEffect(() => {
+    async function getAllQuestions() {
+      const res = await fetch("http://localhost:8080/all-questions");
+      const data = await res.json();
+      const preparedData = prepareQuestionsForRender(data);
+      setQuestions(preparedData);
+    }
+
+    getAllQuestions();
+  }, []);
+
+  console.log(questions);
   const RedirectButton = () => {
     return user ? (
       <Button
@@ -65,14 +81,14 @@ export const HomeQuestionSection = () => {
             <RedirectButton />
           </Card>
         </div>
-        {questionCardData.map((card, idx) => {
+        {questions?.map((card: IQuestionDataFromApi) => {
           return (
             <QuestionCard
-              key={idx}
+              key={card._id}
               title={card.title}
-              author={card.author}
+              author={card.name}
               questions={card.questions}
-              backgroundColor={card.backgroundColor}
+              backgroundColor={card.color}
             />
           );
         })}

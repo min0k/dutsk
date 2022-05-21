@@ -53,7 +53,7 @@ export const ProfilePage = () => {
         </Group>
       )}
       <Title m="xl">Your Questions</Title>
-      <Text m="xl">You have {numberOfQuestions} questions</Text>
+      <Text m="xl">You have {numberOfQuestions} question sets</Text>
       <SimpleGrid
         cols={3}
         breakpoints={[

@@ -2,7 +2,6 @@ import { Button, Container, Text, Textarea } from "@mantine/core";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { IQuestionState } from "../ts/Interfaces";
-
 import { Link } from "react-router-dom";
 
 export const Write = () => {

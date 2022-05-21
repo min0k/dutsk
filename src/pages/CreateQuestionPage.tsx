@@ -1,20 +1,18 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { Button, TextInput } from "@mantine/core";
-import { useContext } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { addNewQuestions } from "../api/addNewQuestions";
-import { LoggedInUserContext } from "../context/LoggedInUserContext";
 import { IFormInput } from "../ts/Interfaces";
 import { prepareQuestionsForUpload } from "../util/prepareQuestions";
 
 export const CreateQuestionPage = () => {
   const navigate = useNavigate();
-
+  const { user } = useAuth0();
   const { handleSubmit, control } = useForm<IFormInput>();
-  const { loggedInUser } = useContext(LoggedInUserContext);
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const preparedData = prepareQuestionsForUpload(data, loggedInUser);
+    const preparedData = prepareQuestionsForUpload(data, user);
     addNewQuestions(preparedData).then(() => {
       navigate("/home");
     });

@@ -1,5 +1,5 @@
 import { QuestionCard } from "./QuestionCard";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -13,12 +13,10 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { prepareQuestionsForRender } from "../util/prepareQuestionsForRender";
 import { IQuestionDataFromApi } from "../ts/Interfaces";
-import { LoggedInUserContext } from "../context/LoggedInUserContext";
 
 export const HomeQuestionSection = () => {
-  const { user, loginWithRedirect, isLoading } = useAuth0();
+  const { user, loginWithRedirect } = useAuth0();
   const [questions, setQuestions] = useState<IQuestionDataFromApi[]>();
-  const { loggedInUser, setLoggedInUser } = useContext(LoggedInUserContext);
 
   useEffect(() => {
     const getAllQuestions = async () => {
@@ -33,14 +31,8 @@ export const HomeQuestionSection = () => {
     getAllQuestions();
   }, []);
 
-  useEffect(() => {
-    if (!isLoading && user) {
-      setLoggedInUser(user);
-    }
-  }, [isLoading, setLoggedInUser, user]);
-
   const RedirectButton = () => {
-    return loggedInUser ? (
+    return user ? (
       <Button
         variant="outline"
         fullWidth

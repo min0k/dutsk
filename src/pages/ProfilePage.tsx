@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Group, Image, SimpleGrid, Text, Title } from "@mantine/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import { prepareQuestionsForRender } from "../util/prepareQuestionsForRender";
 import { IQuestionDataFromApi } from "../ts/Interfaces";
 import { QuestionCard } from "../components/QuestionCard";
 import { LoginButton } from "../components/LoginButton";
+import { LoggedInUserContext } from "../context/LoggedInUserContext";
 
 export interface IFormControllerProps {
   setNewUser: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ProfilePage = () => {
-  const { isLoading, user } = useAuth0();
+  const { isLoading } = useAuth0();
+  const { loggedInUser } = useContext(LoggedInUserContext);
   const [userQuestions, setUserQuestions] = useState<IQuestionDataFromApi[]>();
   const [numberOfQuestions, setNumberOfQuestions] = useState<number>(0);
 
   useEffect(() => {
     const getUserQuestions = async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_CLOUD_RUN_URL}/get-user-questions?name=${user?.name}`
+        `${process.env.REACT_APP_CLOUD_RUN_URL}/get-user-questions?name=${loggedInUser?.name}`
       );
       const data = await res.json();
       const preparedData = prepareQuestionsForRender(data);
@@ -27,9 +29,9 @@ export const ProfilePage = () => {
     };
 
     getUserQuestions();
-  }, [user, numberOfQuestions]);
+  }, [loggedInUser, numberOfQuestions]);
 
-  if (!user) {
+  if (!loggedInUser) {
     return (
       <div>
         <LoginButton />
@@ -39,16 +41,16 @@ export const ProfilePage = () => {
 
   return (
     <div>
-      {!isLoading && user && (
+      {!isLoading && loggedInUser && (
         <Group m="xl">
           <Image
             mb="md"
             style={{ width: 70 }}
             radius="md"
-            src={user?.picture}
+            src={loggedInUser?.picture}
           ></Image>
           <Text size="xl" mb="md">
-            Hi, <span style={{ fontWeight: "bold" }}>{user.name}.</span>
+            Hi, <span style={{ fontWeight: "bold" }}>{loggedInUser.name}.</span>
           </Text>
         </Group>
       )}

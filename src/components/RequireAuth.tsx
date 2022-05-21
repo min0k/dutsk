@@ -1,11 +1,12 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { LoggedInUserContext } from "../context/LoggedInUserContext";
 
 interface IRequireAuth {
   children: JSX.Element;
 }
 
 export const RequireAuth = ({ children }: IRequireAuth) => {
-  const { user } = useAuth0();
-  return user ? children : <Navigate to="/" replace />;
+  const { loggedInUser } = useContext(LoggedInUserContext);
+  return loggedInUser ? children : <Navigate to="/" replace />;
 };

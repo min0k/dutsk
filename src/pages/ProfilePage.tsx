@@ -36,23 +36,11 @@ export const ProfilePage = () => {
     }
   }, []);
 
-  console.log(userFromSession);
-
   if (!userFromSession) {
     return (
       <div>
         <LoginButton />
       </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <Box m="xl">
-        <Skeleton height={70} width="70px" mb="xl" />
-        <Skeleton height={40} width="240px" mt="xl" radius="xl" />
-        <Skeleton height={8} mt="xl" width="100px" radius="xl" />
-      </Box>
     );
   }
 

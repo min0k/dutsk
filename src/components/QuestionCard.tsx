@@ -43,7 +43,7 @@ export const QuestionCard = ({
           By <span style={{ fontWeight: "bold" }}>{author.split(" ")[0]}</span>
         </Text>
         <Text size="sm" weight={300}>
-          Answered 43 times
+          Answered {count} times
         </Text>
         <Button
           color={backgroundColor}

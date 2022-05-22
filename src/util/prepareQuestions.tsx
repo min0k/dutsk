@@ -2,6 +2,11 @@ import { randomColor } from "./randomColor";
 
 export const prepareQuestionsForUpload = (data: any, user: any) => {
   const color = randomColor();
-  const dataWithColorAndName = { ...data, color: color, name: user.name };
-  return dataWithColorAndName;
+  const dataWithColorAndNameAndCount = {
+    ...data,
+    color: color,
+    name: user.name,
+    count: "0",
+  };
+  return dataWithColorAndNameAndCount;
 };

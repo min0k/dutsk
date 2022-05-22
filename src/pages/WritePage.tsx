@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { IQuestionState } from "../ts/Interfaces";
 import { Link } from "react-router-dom";
+import { updateCount } from "../api/updateCount";
 
 export const Write = () => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
@@ -33,6 +34,8 @@ export const Write = () => {
   });
 
   if (complete) {
+    updateCount(questions.id);
+
     return (
       <Container>
         {answers.map((answer, idx) => (

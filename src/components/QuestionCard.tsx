@@ -41,13 +41,16 @@ export const QuestionCard = ({
         <Text size="sm" weight={300}>
           By <span style={{ fontWeight: "bold" }}>{author.split(" ")[0]}</span>
         </Text>
+        <Text size="sm" weight={300}>
+          Answered 43 times
+        </Text>
         <Button
           color={backgroundColor}
           fullWidth
           style={{ marginTop: 14 }}
           component={Link}
           to="/write"
-          state={{ questions: questions }}
+          state={{ questions: questions, id: id }}
         >
           Write
         </Button>

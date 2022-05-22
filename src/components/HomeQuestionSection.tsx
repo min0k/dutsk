@@ -88,6 +88,7 @@ export const HomeQuestionSection = () => {
               author={card.name}
               questions={card.questions}
               backgroundColor={card.color}
+              id={card._id}
             />
           );
         })}

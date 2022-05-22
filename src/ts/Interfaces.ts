@@ -1,5 +1,6 @@
 export interface IQuestionState {
   questions: string[];
+  id: string;
 }
 
 export interface IQuestionCard {
@@ -20,6 +21,7 @@ export interface IFormInput {
 }
 
 export interface IQuestionEntry {
+  count: string;
   title: string;
   name: string;
   color: string;

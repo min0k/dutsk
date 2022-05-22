@@ -1,7 +1,6 @@
 import { FreeWritePage } from "./pages/FreeWritePage";
 import { HomePage } from "./pages/HomePage";
 import { SettingsPage } from "./pages/SettingsPage";
-import { AboutPage } from "./pages/AboutPage";
 import { useState } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -80,7 +79,6 @@ export const AppRoutes = () => {
           <Route path="/home" element={<HomePage />} />
           <Route path="/free" element={<FreeWritePage />} />
           <Route path="/settings" element={<SettingsPage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/write" element={<Write />} />
 

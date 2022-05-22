@@ -6,10 +6,15 @@ import { ICON_SIZE } from "../data/navbarData";
 export const LogoutButton = () => {
   const { logout } = useAuth0();
 
+  const handleLogout = () => {
+    sessionStorage.clear();
+    logout();
+  };
+
   return (
     <Button
       variant="subtle"
-      onClick={() => logout({ returnTo: window.location.origin })}
+      onClick={handleLogout}
       sx={(theme) => ({
         color:
           theme.colorScheme === "dark"

@@ -17,6 +17,7 @@ import { IQuestionDataFromApi } from "../ts/Interfaces";
 export const HomeQuestionSection = () => {
   const { user, loginWithRedirect } = useAuth0();
   const [questions, setQuestions] = useState<IQuestionDataFromApi[]>();
+  const [userFromSession, setUserFromSession] = useState<any>();
 
   useEffect(() => {
     const getAllQuestions = async () => {
@@ -31,8 +32,23 @@ export const HomeQuestionSection = () => {
     getAllQuestions();
   }, []);
 
+  useEffect(() => {
+    if (user && sessionStorage.getItem("user") === null) {
+      sessionStorage.setItem("user", JSON.stringify(user));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("user")) {
+      const user = JSON.parse(sessionStorage.getItem("user")!);
+      setUserFromSession(user);
+    }
+  }, [user]);
+
+  console.log(JSON.parse(sessionStorage.getItem("user")!));
+
   const RedirectButton = () => {
-    return user ? (
+    return userFromSession ? (
       <Button
         variant="outline"
         fullWidth

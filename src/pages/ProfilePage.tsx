@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
-import { Box, Group, Image, SimpleGrid, Text, Title } from "@mantine/core";
-import { useAuth0 } from "@auth0/auth0-react";
+import { Group, Image, SimpleGrid, Text, Title } from "@mantine/core";
 import { prepareQuestionsForRender } from "../util/prepareQuestionsForRender";
 import { IQuestionDataFromApi } from "../ts/Interfaces";
 import { QuestionCard } from "../components/QuestionCard";
 import { LoginButton } from "../components/LoginButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export interface IFormControllerProps {
   setNewUser: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ProfilePage = () => {
+  const { user } = useAuth0();
   const [userQuestions, setUserQuestions] = useState<IQuestionDataFromApi[]>();
   const [numberOfQuestions, setNumberOfQuestions] = useState<number>(0);
-  const [userFromSession, setUserFromSession] = useState<any>();
+
   useEffect(() => {
     const getUserQuestions = async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_CLOUD_RUN_URL}/get-user-questions?name=${userFromSession?.name}`
+        `${process.env.REACT_APP_CLOUD_RUN_URL}/get-user-questions?name=${user?.name}`
       );
       const data = await res.json();
       const preparedData = prepareQuestionsForRender(data);
@@ -25,16 +26,9 @@ export const ProfilePage = () => {
       setNumberOfQuestions(preparedData.length);
     };
     getUserQuestions();
-  }, [userFromSession, numberOfQuestions]);
+  }, [user, numberOfQuestions]);
 
-  useEffect(() => {
-    if (sessionStorage.getItem("user")) {
-      const user = JSON.parse(sessionStorage.getItem("user")!);
-      setUserFromSession(user);
-    }
-  }, []);
-
-  if (!userFromSession) {
+  if (!user) {
     return (
       <div>
         <LoginButton />
@@ -44,17 +38,16 @@ export const ProfilePage = () => {
 
   return (
     <div>
-      {userFromSession && (
+      {user && (
         <Group m="xl">
           <Image
             mb="md"
             style={{ width: 70 }}
             radius="md"
-            src={userFromSession?.picture}
+            src={user?.picture}
           ></Image>
           <Text size="xl" mb="md">
-            Hi,{" "}
-            <span style={{ fontWeight: "bold" }}>{userFromSession!.name}.</span>
+            Hi, <span style={{ fontWeight: "bold" }}>{user!.name}.</span>
           </Text>
         </Group>
       )}

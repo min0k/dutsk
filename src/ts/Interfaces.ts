@@ -21,7 +21,7 @@ export interface IFormInput {
 }
 
 export interface IQuestionEntry {
-  count: string;
+  count: number;
   title: string;
   name: string;
   color: string;

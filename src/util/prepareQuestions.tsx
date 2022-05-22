@@ -6,7 +6,7 @@ export const prepareQuestionsForUpload = (data: any, user: any) => {
     ...data,
     color: color,
     name: user.name,
-    count: "0",
+    count: 0,
   };
   return dataWithColorAndNameAndCount;
 };

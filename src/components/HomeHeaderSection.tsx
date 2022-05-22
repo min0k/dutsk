@@ -1,9 +1,8 @@
-import { Anchor, Box, List, Text, ThemeIcon, Title } from "@mantine/core";
-import { FiChevronRight, FiHome, FiMinus } from "react-icons/fi";
+import { Box, List, ThemeIcon, Title } from "@mantine/core";
+import { FiChevronRight } from "react-icons/fi";
 export const HomeHeaderSection = () => {
   return (
     <div>
-      {" "}
       <Box
         sx={(theme) => ({
           padding: theme.spacing.xl,
@@ -28,12 +27,6 @@ export const HomeHeaderSection = () => {
           <List.Item>Nothing you write is saved or seen.</List.Item>
           <List.Item>Create your own questions for others to answer.</List.Item>
         </List>
-        {/* <Text size="lg" pb="sm" pl="xl" variant="text">
-          These questions were prepared by{" "}
-          <Anchor weight="bold" href="https://mantine.dev/" target="_blank">
-            [Person]
-          </Anchor>
-        </Text> */}
       </Box>
     </div>
   );

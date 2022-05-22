@@ -36,11 +36,9 @@ export const Write = () => {
     return (
       <Container>
         {answers.map((answer, idx) => (
-          <div>
+          <div key={idx}>
             <Text weight="bold">{questions.questions[idx]}</Text>
-            <Text key={idx} pb="xl">
-              {answer}
-            </Text>
+            <Text pb="xl">{answer}</Text>
           </div>
         ))}
         <Button

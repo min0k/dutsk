@@ -89,6 +89,7 @@ export const HomeQuestionSection = () => {
               questions={card.questions}
               backgroundColor={card.color}
               id={card._id}
+              count={card.count}
             />
           );
         })}

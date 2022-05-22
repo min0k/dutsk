@@ -1,6 +1,7 @@
 export interface IQuestionState {
   questions: string[];
   id: string;
+  count: number;
 }
 
 export interface IQuestionCard {
@@ -10,6 +11,7 @@ export interface IQuestionCard {
   backgroundColor: string;
   inProfile?: boolean;
   id?: string;
+  count: number;
   setNumberOfQuestions?: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -31,6 +33,7 @@ export interface IQuestionEntry {
 }
 
 export interface IQuestionDataFromApi {
+  count: number;
   __v: number;
   _id: string;
   color: string;

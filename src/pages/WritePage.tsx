@@ -34,7 +34,7 @@ export const Write = () => {
   });
 
   if (complete) {
-    updateCount(questions.id);
+    updateCount(questions.id, questions.count);
 
     return (
       <Container>

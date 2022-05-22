@@ -18,6 +18,7 @@ export const QuestionCard = ({
   backgroundColor,
   inProfile,
   id,
+  count,
   setNumberOfQuestions,
 }: IQuestionCard) => {
   const theme = useMantineTheme();
@@ -50,7 +51,7 @@ export const QuestionCard = ({
           style={{ marginTop: 14 }}
           component={Link}
           to="/write"
-          state={{ questions: questions, id: id }}
+          state={{ questions: questions, id: id, count: count }}
         >
           Write
         </Button>

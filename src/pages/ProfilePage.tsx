@@ -71,6 +71,7 @@ export const ProfilePage = () => {
               inProfile={true}
               id={card._id}
               setNumberOfQuestions={setNumberOfQuestions}
+              count={card.count}
             />
           );
         })}

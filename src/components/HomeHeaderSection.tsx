@@ -13,10 +13,12 @@ export const HomeHeaderSection = () => {
           What is this?
         </Title>
         <List
-          spacing="xs"
-          size="md"
+          withPadding
+          spacing="lg"
+          size="lg"
           center
-          pb="xl"
+          mb="xl"
+          mt="xl"
           icon={
             <ThemeIcon color="blue" size={24} radius="xl">
               <FiChevronRight />
@@ -24,7 +26,7 @@ export const HomeHeaderSection = () => {
           }
         >
           <List.Item>Choose a question set and start writing.</List.Item>
-          <List.Item>Nothing you write is saved or seen.</List.Item>
+          <List.Item>Nothing you write is saved.</List.Item>
           <List.Item>Create your own questions for others to answer.</List.Item>
         </List>
       </Box>

@@ -39,7 +39,7 @@ export const QuestionCard = ({
           <Text weight={500}>{title}</Text>
         </Group>
         <Text size="sm" weight={300}>
-          By <span style={{ fontWeight: "bold" }}>{author}</span>
+          By <span style={{ fontWeight: "bold" }}>{author.split(" ")[0]}</span>
         </Text>
         <Button
           color={backgroundColor}

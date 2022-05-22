@@ -45,8 +45,6 @@ export const HomeQuestionSection = () => {
     }
   }, [user]);
 
-  console.log(JSON.parse(sessionStorage.getItem("user")!));
-
   const RedirectButton = () => {
     return userFromSession ? (
       <Button

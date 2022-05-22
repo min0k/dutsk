@@ -5,14 +5,12 @@ import { prepareQuestionsForRender } from "../util/prepareQuestionsForRender";
 import { IQuestionDataFromApi } from "../ts/Interfaces";
 import { QuestionCard } from "../components/QuestionCard";
 import { LoginButton } from "../components/LoginButton";
-import { Skeleton } from "@mantine/core";
 
 export interface IFormControllerProps {
   setNewUser: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ProfilePage = () => {
-  const { isLoading } = useAuth0();
   const [userQuestions, setUserQuestions] = useState<IQuestionDataFromApi[]>();
   const [numberOfQuestions, setNumberOfQuestions] = useState<number>(0);
   const [userFromSession, setUserFromSession] = useState<any>();

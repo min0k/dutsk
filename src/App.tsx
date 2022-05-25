@@ -5,7 +5,7 @@ import {
   Paper,
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import { AppRoutes } from "./AppRoutes";
+import { ShellWithRoutes } from "./ShellWithRoutes";
 import Auth0ProviderWithHistory from "./auth0Provider";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
       >
         <MantineProvider theme={{ colorScheme }}>
           <Paper radius={0} style={{ minHeight: "100vh" }}>
-            <AppRoutes />
+            <ShellWithRoutes />
           </Paper>
         </MantineProvider>
       </ColorSchemeProvider>

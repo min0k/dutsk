@@ -1,11 +1,12 @@
+import { IFormInput } from "../ts/Interfaces";
 import { randomColor } from "./randomColor";
 
-export const prepareQuestionsForUpload = (data: any, user: any) => {
+export const prepareQuestionsForUpload = (data: IFormInput, user: string) => {
   const color = randomColor();
   const dataWithColorAndNameAndCount = {
     ...data,
     color: color,
-    name: user.name,
+    name: user,
     count: 0,
   };
   return dataWithColorAndNameAndCount;

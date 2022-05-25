@@ -21,10 +21,7 @@ export const NavbarComponent = () => {
           <MainLink {...link} key={link.label} />
         ))}
       </div>
-      <div>
-        {!user && <LoginButton />}
-        {user && <LogoutButton />}
-      </div>
+      <div>{!user ? <LoginButton /> : <LogoutButton />}</div>
     </div>
   );
 };

@@ -4,6 +4,10 @@ export interface IQuestionState {
   count: number;
 }
 
+export interface IRequireAuth {
+  children: JSX.Element;
+}
+
 export interface IQuestionCard {
   title: string;
   author: string;

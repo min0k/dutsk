@@ -1,9 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navigate } from "react-router-dom";
-
-interface IRequireAuth {
-  children: JSX.Element;
-}
+import { IRequireAuth } from "../ts/Interfaces";
 
 export const RequireAuth = ({ children }: IRequireAuth) => {
   const { user } = useAuth0();

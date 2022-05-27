@@ -50,3 +50,9 @@ export interface IQuestionDataFromApi {
   title: string;
   updatedAt: string;
 }
+
+export interface MainLinkProps {
+  icon: React.ReactNode;
+  color: string;
+  label: string;
+}

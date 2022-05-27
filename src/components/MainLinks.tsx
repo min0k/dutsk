@@ -1,12 +1,7 @@
 import { Anchor, ThemeIcon } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { MainLinkProps } from "../ts/Interfaces";
 import { capitalizeFirstLetter } from "../util/capitalizeFirstLetter";
-
-interface MainLinkProps {
-  icon: React.ReactNode;
-  color: string;
-  label: string;
-}
 
 export const MainLink = ({ icon, color, label }: MainLinkProps) => {
   return (

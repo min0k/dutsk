@@ -1,3 +1,1 @@
-In Progress..
-
-Mindwrite is a CRUD app with authentication.
+Mindwrite is a React CRUD app with authentication via Auth0
